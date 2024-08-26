@@ -1,44 +1,48 @@
-class OPERACIONES(var n1:Double, var n2:Double) {
+data class OPERACIONES(var n1: Double, var n2: Double) {
 
     private val resultados = mutableListOf<Double>()
 
-    fun suma(n1:Double, n2:Double){
-        var res = n1 + n2
+     fun suma(n1: Double, n2: Double) {
+        val res = n1 + n2
         resultados.add(res)
-        println("El resultado de la suma es la siguiente: $res")
+        println("El resultado de la suma es: $res")
     }
 
-    fun resta(n1: Double, n2: Double){
-        var res = n1 - n2
+    fun resta(n1: Double, n2: Double) {
+        val res = n1 - n2
         resultados.add(res)
-        println("El resultado de la resta es la siguiente: $res")
+        println("El resultado de la resta es: $res")
     }
-    fun multi(n1: Double, n2: Double){
-        var res = this.n1 * n2
+
+    fun multi(n1: Double, n2: Double) {
+        val res = this.n1 * n2
         resultados.add(res)
-        println("El resultado de la multiplicacion es la siguiente: $res")
+        println("El resultado de la multiplicación es: $res")
     }
-    fun div(n1: Double, n2: Double){
-        var res = n1 / this.n2
+
+    fun div(n1: Double, n2: Double) {
+        if (n2 != 0.0) {
+            val res = n1 / this.n2
+            resultados.add(res)
+            println("El resultado de la división es: $res")
+        } else {
+            println("Error: No se puede dividir entre cero.")
+        }
+    }
+
+    fun raiz(n1: Double) {
+        val res = Math.sqrt(this.n1)
         resultados.add(res)
-        println("El resultado de la division es la siguiente: $res")
+        println("El resultado de la raíz es: $res")
     }
-    fun raiz(n1:Double, n2: Double){
-        var res = Math.sqrt(this.n1)
+
+    fun elev(n1: Double, n2: Double) {
+        val res = Math.pow(this.n1, this.n2)
         resultados.add(res)
-        println("El resultado de la raiz es la siguiente: $res")
+        println("El resultado de la exponencial es: $res")
     }
-    fun elev(n1:Double, n2: Double){
-        var res = Math.pow(this.n1, this.n2)
-        resultados.add(res)
-        println("El resultado de la exponencial es la siguiente: $res")
-    }
+
     fun obtenerResultados(): List<Double> {
         return resultados
     }
-
-    override fun toString(): String {
-        return "OPERACIONES(n1=$n1, n2=$n2)"
-    }
-
 }
